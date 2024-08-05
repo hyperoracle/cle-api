@@ -50,7 +50,7 @@ function genAdaptorParams(_cleYaml: CLEYaml, dataPrep: EthereumDataPrep) {
     mpt_receiptroots: dataPrep.blocknumberOrder.map((bn: any) => { return (dataPrep.blockPrepMap.get(bn) as BlockPrep).receiptsRoot }),
     mpt_txroots: dataPrep.blocknumberOrder.map((bn: any) => { return (dataPrep.blockPrepMap.get(bn) as BlockPrep).transactionsRoot }),
     rlp_blockheader: dataPrep.blocknumberOrder.map(
-      (bn: any) => { return isRecentBlock(bn, dataPrep.latestBlocknumber) ? (dataPrep.blockPrepMap.get(bn) as BlockPrep).rlpheader : null }), // ['0xrecentblockheaderrlp', '' for bho blocknum]
+      (bn: any) => { return isRecentBlock(bn, dataPrep.latestBlocknumber) ? (dataPrep.blockPrepMap.get(bn) as BlockPrep).rlpheader : '' }), // ['0xrecentblockheaderrlp', '' for bho blocknum]
   }
   return adaptorParam
 }
